@@ -62,7 +62,7 @@ int Graphics::line(unsigned int x1, unsigned int y1, unsigned int x2, unsigned i
 		EPtr(RGBAKEY, (uint32_t)argb.color, argb.color ? Uint : None),
 		EPtr(WIDTH, (uint32_t) weight, weight == 1 ? None : Uint) };
 
-	return shield.block(writeAll(SERVICE_NAME_GRAPHICS, eptrs, 7), onEvent == NULL);
+	return writeAll(SERVICE_NAME_GRAPHICS, eptrs, 7);
 }
 
 /// <summary>
@@ -187,7 +187,7 @@ int Graphics::fillRectangle(unsigned int x, unsigned int y, unsigned int width, 
         EPtr(EVENTS, enableExtendedEvents, enableExtendedEvents ? Bool : None)
     };
 
-	return shield.block(writeAll(SERVICE_NAME_GRAPHICS, eptrs, 8), onEvent == NULL);
+	return writeAll(SERVICE_NAME_GRAPHICS, eptrs, 8);
 }
 
 /// <summary>
@@ -208,7 +208,7 @@ int Graphics::fillRectangle(unsigned int x, unsigned int y, unsigned int width, 
 int Graphics::orientation(int autoRotationPreferences)
 {
 	EPtr eptrs[] = { EPtr(ACTION, ORIENTATION), EPtr(VALUE, autoRotationPreferences, autoRotationPreferences == -1 ? None : Int) };
-	return shield.block(writeAll(SERVICE_NAME_GRAPHICS, eptrs, 2), onEvent == NULL);
+	return writeAll(SERVICE_NAME_GRAPHICS, eptrs, 2);
 }
 
 /// <summary>
@@ -222,7 +222,7 @@ int Graphics::orientation(int autoRotationPreferences)
 int Graphics::addButton(unsigned int x, unsigned int y, const char * text, const char * tag)
 {
 	EPtr eptrs[] = { EPtr(ACTION, BUTTON), EPtr(Y, (uint32_t)y), EPtr(X, (uint32_t)x), EPtr(MemPtr, MESSAGE, text), EPtr(MemPtr, TAG, tag ? tag : text) };
-	return shield.block(writeAll(SERVICE_NAME_GRAPHICS, eptrs, 5), onEvent == NULL);
+	return writeAll(SERVICE_NAME_GRAPHICS, eptrs, 5);
 }
 
 /// <summary>

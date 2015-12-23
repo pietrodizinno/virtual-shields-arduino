@@ -35,7 +35,7 @@
 const PROGMEM char HorizontalAlignment[] = "HorizontalAlignment";
 const PROGMEM char Foreground[] = "Foreground";
 
-enum Orientation
+enum DisplayOrientation
 {
 	Orientation_None = 0,
 	Orientation_Landscape = 1,

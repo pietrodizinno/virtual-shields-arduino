@@ -200,7 +200,7 @@ void VirtualShield::begin(IStream^ s)
 /// </summary>
 int VirtualShield::block(int id, bool blocking, int32_t timeout, int watchForResultId)
 {
-    return allowAutoBlocking && blocking ? waitFor(id, timeout, watchForResultId) : id;
+    return (allowAutoBlocking && blocking) ? waitFor(id, timeout, true, watchForResultId) : id;
 }
 
 /// <summary>
